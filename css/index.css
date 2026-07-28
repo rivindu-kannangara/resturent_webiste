@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+
+.upperbody{
+    background:url(../images/backgroundimage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+}
+
+.nav-link{
+    background-color: transparent;
+    color: aliceblue;
+    font-size: 1.2rem;
+    font-family: "Maiden Orange", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-link:hover{
+    color:aliceblue ;
+}
+
+.navbar-brand img{
+    width: 4em;
+    position: relative;
+}
+
+.upperbodyquate{
+    position: relative;
+    color: aliceblue;
+    font-size: 10dvh;
+    margin: 145px 42px;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.upper_order_button{
+    position: relative;
+    background: #FF7112;
+    top: -5rem;
+    margin: 0rem 3rem;
+    color: aliceblue;
+    border-radius: 12px;
+    padding: 12px 42px;
+    border-radius: none;
+}
+
+.middle_body{
+    background-color: #202020;
+}
+
+.offers .header{
+    color: aliceblue;
+    padding: 70px 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Maiden Orange", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* offer slider */
+
+.contaier {
+  max-width: 1220px;
+  width: 100%;
+  padding: 80px 80px;
+}
+
+.slide-container {
+  margin: 10px 30px;
+  overflow: hidden;
+}
+.card {
+  background: #eae1e1;
+  border-radius: 8px;
+}
+.card .image-box {
+  height: 200px;
+}
+.card .image-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+}
+.card .profile-details {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  padding: 15px;
+}
+.card .profile-details img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.profile-details .name {
+  font-size: 15px;
+  font-weight: 500;
+}
+.profile-details .job {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4d4d4d;
+}
+
+.swiper-navBtn {
+  color: #000;
+  height: 40px;
+  width: 40px;
+  background: #fff;
+  border-radius: 50%;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 18px;
+}
+
+.swiper-pagination-bullet {
+  background-color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-navBtn {
+    display: none;
+  }
+}
