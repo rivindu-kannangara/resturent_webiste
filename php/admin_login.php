@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (mysqli_stmt_execute($stmt)) {
                 mysqli_stmt_close($stmt);
-                header("Location: shop_worker_login.php?signup_success=1&message=" . urlencode("Account created. Please log in."));
+                header("Location: admin_logi.php?signup_success=1&message=" . urlencode("Account created. Please log in."));
                 exit();
             } else {
                 error_log("Signup insert failed: " . mysqli_stmt_error($stmt));
@@ -194,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
                     $_SESSION['ip_address'] = $_SERVER['REMOTE_ADDR'];
 
-                    header("Location: admin/adminpanel.php");
+                    header("Location: admin/dashboard.php");
                     exit();
                 } else {
                     $_SESSION['login_attempts']++;
