@@ -4,6 +4,8 @@ include('includes/function.php');
 include('../config/auth.php');
 include('../config/dbcon.php');
 
+global $conn;
+
 if (!isLoggedIn()) {
     header("Location: shop_worker_login.php");
     exit();
@@ -22,13 +24,13 @@ $availability        = isset($_GET['availability']) ? $_GET['availability'] : 'a
 $categories = [];
 $catResult = mysqli_query($conn, "SELECT category_id, name FROM categories ORDER BY name");
 if ($catResult) {
-    while ($row = mysqli_fetch_assoc($catResult)) {
-        $categories[] = $row;
+    while ($catRow = mysqli_fetch_assoc($catResult)) {
+        $categories[] = $catRow;
     }
 }
 
 // Build the product query dynamically based on filters
-$sql = "SELECT p.product_id, p.name, p.price, p.image_path, p.is_available, c.name AS category_name
+$sql = "SELECT p.product_id, p.name, p.price_small, p.price_medium, p.price_large, p.image_path, p.is_available, c.name AS category_name
         FROM products p
         LEFT JOIN categories c ON p.category_id = c.category_id
         WHERE 1=1";
@@ -62,12 +64,17 @@ if ($params) {
 }
 mysqli_stmt_execute($stmt);
 $products = mysqli_stmt_get_result($stmt);
+
+// filemtime() instead of time() so the CSS actually caches between page loads
+$dashCssVer = filemtime(__DIR__ . '/../../css/dashboard.css');
 ?>
 <head>
-    <link rel="stylesheet" href="../../css/dashboard.css?v=<?= time(); ?>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/dashboard.css?v=<?= $dashCssVer; ?>">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Dashboard | Restaurant</title>
-
 </head>
 
 <body>
@@ -89,7 +96,7 @@ $products = mysqli_stmt_get_result($stmt);
         <select name="category_id">
             <option value="0">All Categories</option>
             <?php foreach ($categories as $cat): ?>
-                <option value="<?= $cat['category_id']; ?>" <?= $selected_category == $cat['category_id'] ? 'selected' : ''; ?>>
+                <option value="<?= (int) $cat['category_id']; ?>" <?= $selected_category == $cat['category_id'] ? 'selected' : ''; ?>>
                     <?= htmlspecialchars($cat['name']); ?>
                 </option>
             <?php endforeach; ?>
@@ -111,11 +118,14 @@ $products = mysqli_stmt_get_result($stmt);
         <?php if ($products && mysqli_num_rows($products) > 0): ?>
             <?php while ($item = mysqli_fetch_assoc($products)): ?>
                 <div class="ad-card">
-                    <img src="<?= htmlspecialchars($item['image_path'] ?: 'assets/images/no-image.png'); ?>" alt="<?= htmlspecialchars($item['name']); ?>">
-
+                    <img src="productimages/<?= htmlspecialchars($item['image_path']); ?>" alt="<?= htmlspecialchars($item['name']); ?>">
                     <div class="ad-card-body">
                         <h5><?= htmlspecialchars($item['name']); ?></h5>
-                        <p class="price">Price: $<?= number_format($item['price'], 2); ?></p>
+                        <p class="price">
+                            Small: $<?= number_format($item['price_small'], 2); ?> |
+                            Medium: $<?= number_format($item['price_medium'], 2); ?> |
+                            Large: $<?= number_format($item['price_large'], 2); ?>
+                        </p>
                         <?php if (!empty($item['category_name'])): ?>
                             <p class="category"><?= htmlspecialchars($item['category_name']); ?></p>
                         <?php endif; ?>
@@ -127,14 +137,14 @@ $products = mysqli_stmt_get_result($stmt);
                         <?php endif; ?>
 
                         <div class="ad-buttons">
-                            <a href="product_view.php?id=<?= $item['product_id']; ?>" class="card-button" id="view">View</a>
+                            <a href="../product_view.php?id=<?= $item['product_id']; ?>" class="card-button" id="view">View</a>
 
-                            <form action="product_edit.php" method="get">
+                            <form action="product_edit.php" class="cardform" method="get">
                                 <input type="hidden" name="id" value="<?= $item['product_id']; ?>">
                                 <button type="submit" class="card-button" id="edit">Edit</button>
                             </form>
 
-                            <form action="product_delete.php" method="post" onsubmit="return confirm('Delete this product?');">
+                            <form action="product_delete.php" class="cardform" method="post" onsubmit="return confirm('Delete this product?');">
                                 <input type="hidden" name="product_id" value="<?= $item['product_id']; ?>">
                                 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']); ?>">
                                 <button type="submit" class="card-button" id="delete">Delete</button>
@@ -149,19 +159,18 @@ $products = mysqli_stmt_get_result($stmt);
     </div>
 </div>
 
-
 <script>
-function checkSession() {
-    fetch('check_session.php')
-        .then(res => res.json())
-        .then(data => {
-            if (!data.valid) window.location.href = 'shop_worker_login.php';
-        });
-}
-window.onload = checkSession;
-window.onpageshow = function(event) {
-    if (event.persisted) checkSession();
-};
+    function checkSession() {
+        fetch('check_session.php')
+            .then(res => res.json())
+            .then(data => {
+                if (!data.valid) window.location.href = 'shop_worker_login.php';
+            });
+    }
+    window.onload = checkSession;
+    window.onpageshow = function (event) {
+        if (event.persisted) checkSession();
+    };
 </script>
 
 </body>

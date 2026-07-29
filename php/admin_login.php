@@ -37,7 +37,7 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 include('header.php');
-include 'config/function.php';
+include 'admin/includes/function.php';
 include 'config/dbcon.php';
 
 $errors = [];

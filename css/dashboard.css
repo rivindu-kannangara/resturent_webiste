@@ -11,7 +11,7 @@
         }
 
         body {
-            background-color: #1c1c1c;
+            background-color: #202020;
             color: #f8f9fa;
         }
 
@@ -26,7 +26,7 @@
             font-size: 32px;
             font-weight: 700;
             text-align: center;
-            margin: 3rem 0 2rem;
+            margin: 1rem 0 2rem;
         }
 
         /* Filter bar */
@@ -167,7 +167,7 @@
         #edit   { background-color: #1d4ed8; }
         #delete { background-color: #dc2626; }
 
-        form { display: inline; margin: 0; padding: 0; width: 100%; }
+        .cardform { display: inline; margin: 0; padding: 0; width: 100%; }
 
         .no-products {
             text-align: center;
