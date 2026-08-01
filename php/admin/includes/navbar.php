@@ -14,26 +14,18 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="php/admin_login.php">Log Out</a>
+                  <a class="nav-link" href="profile.php">Profile</a>
                 </li>
 
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Menu
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
+                <li class="nav-item">
+                  <a class="nav-link" href="admin_logout.php">Log Out</a>
                 </li>
+
               </ul>
 
               <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+                  <a class="nav-link" href="#">+94 71234567</a>
                 </li>
               </ul>
 

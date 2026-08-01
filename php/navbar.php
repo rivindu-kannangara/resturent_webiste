@@ -14,11 +14,11 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="php/admin_login.php">Login</a>
+                  <a class="nav-link" href="admin_login.php">Login</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="php/menu.php">Menu</a>
+                  <a class="nav-link" href="menu.php">Menu</a>
                 </li>
 
 
@@ -27,7 +27,7 @@
 
               <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+                  <a class="nav-link" href="#">+94 71234567</a>
                 </li>
               </ul>
 
