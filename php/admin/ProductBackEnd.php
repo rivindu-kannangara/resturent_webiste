@@ -8,7 +8,7 @@ global $conn;
 
 // Guard: don't let people hit this endpoint directly or when not logged in
 if (!isLoggedIn()) {
-    header("Location: shop_worker_login.php");
+    header("Location: admin_login.php");
     exit();
 }
 
@@ -89,7 +89,7 @@ $sql = "INSERT INTO products
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param(
     $stmt,
-    'sdddisis',
+    'sdddisss',
     $name,
     $price_small,
     $price_medium,

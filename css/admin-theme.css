@@ -1,0 +1,232 @@
+body{
+        background-color: #202020;
+
+}
+
+.product-adding {
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    font-family: 'Inter', system-ui, sans-serif;
+    
+}
+
+.heading {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+}
+
+.subheading {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 1.8rem 0 1rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #eee;
+}
+
+.inputarea {
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.inputarea label,
+.group-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.inputarea input[type="text"],
+.inputarea input[type="email"],
+.inputarea input[type="password"],
+.inputarea input[type="number"],
+.inputarea input[type="file"],
+.inputarea textarea,
+.inputarea select {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputarea input:focus,
+.inputarea textarea:focus,
+.inputarea select:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+}
+
+.field-hint {
+    font-size: 0.78rem;
+    color: #888;
+}
+
+.field-error {
+    font-size: 0.78rem;
+    color: #d64545;
+}
+
+.form-alert {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+}
+.form-alert.error {
+    background: #fdecec;
+    color: #b3261e;
+    border: 1px solid #f6c6c3;
+}
+.form-alert.success {
+    background: #eafbef;
+    color: #1e7a34;
+    border: 1px solid #bfe8cb;
+}
+
+/* --- Prices in a single responsive line --- */
+.price-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.price-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.price-field label {
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.price-input,
+.percent-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.price-input:focus-within,
+.percent-input:focus-within {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+}
+
+.price-input .currency,
+.percent-input .percent-sign {
+    padding: 0 0.6rem;
+    color: #888;
+    background: #f7f7f7;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.price-input input,
+.percent-input input {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.percent-input {
+    max-width: 140px;
+}
+
+@media (max-width: 480px) {
+    .price-row {
+        flex-wrap: wrap;
+    }
+    .price-field {
+        flex: 1 1 100%;
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.link-cancel {
+    color: #777;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.link-cancel:hover {
+    text-decoration: underline;
+}
+
+button[type="submit"] {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background: #e85a25;
+}
+
+button[type="submit"]:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.imagedisplayarea {
+    margin-top: 0.6rem;
+}
+
+.display_image {
+    display: none;         /* hidden until a file is chosen (or shown pre-set via inline style when editing) */
+    max-width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.avatar-preview {
+    display: none;
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+.checkbox-row {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.6rem !important;
+}
+.checkbox-row input[type="checkbox"] {
+    width: auto;
+}

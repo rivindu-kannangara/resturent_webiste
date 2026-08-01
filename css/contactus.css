@@ -1,0 +1,39 @@
+.backcontact{
+    height: 50dvh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: url(../images/contactus.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contactHeader{
+    color: #dedede;
+    position: relative;
+    display: flex;
+    margin: 4dvh;
+    font-size: 20dvh;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.9;
+    justify-content: center;
+
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+    display: grid;
+    background-color: rgba(29, 29, 29, 0.103);
+    position: relative;
+    top: 4dvh;
+}
+
+.contact-container span{
+    color: aliceblue;
+    padding: 12px;   
+}
+

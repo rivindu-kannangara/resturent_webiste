@@ -7,18 +7,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Home</a>
+                  <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="admin_login.php">Login</a>
+                  <a class="nav-link" href="#"><i class="fa-solid fa-address-card"></i> Contact Us</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="menu.php">Menu</a>
+                  <a class="nav-link" href="admin_login.php"><i class="fa-solid fa-user-lock"></i> Login</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="menu.php"><i class="fa-solid fa-book"></i> Menu</a>
                 </li>
 
 
@@ -27,13 +27,13 @@
 
               <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">+94 71234567</a>
+                  <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> +94 71234567</a>
                 </li>
               </ul>
 
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="btn btn-outline-warning" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
           </div>

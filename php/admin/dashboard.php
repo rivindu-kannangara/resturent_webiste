@@ -5,9 +5,11 @@ include('../config/auth.php');
 include('../config/dbcon.php');
 global $conn;
 
+$_SESSION['admin_id'] = '1';
+
 
 if (!isLoggedIn()) {
-    header("Location: shop_worker_login.php");
+    header("Location: admin_login.php");
     exit();
 }
 
@@ -117,68 +119,11 @@ function renderProductPrices(array $item): string
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/dashboard.css?v=<?= time(); ?>">
-    <link rel="stylesheet" href="../../css/admin-theme.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../../css/dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../css/admin-theme.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Dashboard | Restaurant</title>
-    <style>
-        body { background-color: var(--bg, #15120F); }
-        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px 3rem; }
 
-        /* ---- price block ---- */
-        .price-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem 0.9rem;
-            margin: 0.35rem 0 0.5rem;
-        }
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 0.35rem;
-            font-size: 0.95rem;
-        }
-        .size-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: var(--muted, #9c948b);
-            font-weight: 600;
-        }
-        .price {
-            font-weight: 700;
-            color: var(--accent, #e8a33d);
-        }
-        .price-old {
-            text-decoration: line-through;
-            color: var(--muted, #9c948b);
-            font-size: 0.85rem;
-        }
-        .price-new {
-            font-weight: 700;
-            color: var(--accent, #e8a33d);
-        }
-        .price-empty {
-            font-size: 0.85rem;
-            color: var(--muted, #9c948b);
-            font-style: italic;
-        }
-        .offer-badge {
-            display: inline-block;
-            background: var(--accent, #e8a33d);
-            color: var(--accent-ink, #15120F);
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 0.12rem 0.5rem;
-            border-radius: 999px;
-            width: fit-content;
-        }
-
-        @media (max-width: 480px) {
-            .price-group { gap: 0.3rem 0.6rem; }
-            .price-row { font-size: 0.88rem; }
-        }
-    </style>
 </head>
 
 <body data-toast-success="<?= isset($_SESSION['success']) ? htmlspecialchars($_SESSION['success']) : ''; unset($_SESSION['success']); ?>"
@@ -186,7 +131,6 @@ function renderProductPrices(array $item): string
 <?php include('includes/navbar.php'); ?>
 
 <div class="page-head">
-    <p class="eyebrow">Menu Management</p>
     <h1>Dashboard</h1>
 </div>
 
@@ -213,7 +157,6 @@ function renderProductPrices(array $item): string
 
         <button type="submit">Apply Filters</button>
         <a href="dashboard.php" class="reset-link">Reset</a>
-        <a href="product_add.php" class="reset-link" style="background: var(--accent); color: var(--accent-ink); border: none; font-weight: 700;">+ Add Product</a>
     </form>
 
     <div class="product-grid">
@@ -221,7 +164,7 @@ function renderProductPrices(array $item): string
             <?php while ($item = mysqli_fetch_assoc($products)): ?>
                 <div class="product-card">
                     <div class="thumb">
-                        <img src="<?= htmlspecialchars($item['image_path'] ?: 'assets/images/no-image.png'); ?>" alt="<?= htmlspecialchars($item['name']); ?>">
+                        <img src="productimages/<?= htmlspecialchars($item['image_path'] ?: 'assets/images/no-image.png'); ?>" alt="<?= htmlspecialchars($item['name']); ?>">
                         <?php if ($item['is_available']): ?>
                             <span class="status-flag available">Available</span>
                         <?php else: ?>
@@ -279,7 +222,7 @@ function renderProductPrices(array $item): string
 function checkSession() {
     fetch('check_session.php')
         .then(res => res.json())
-        .then(data => { if (!data.valid) window.location.href = 'shop_worker_login.php'; });
+        .then(data => { if (!data.valid) window.location.href = 'admin_login.php'; });
 }
 window.onload = checkSession;
 window.onpageshow = function(event) { if (event.persisted) checkSession(); };

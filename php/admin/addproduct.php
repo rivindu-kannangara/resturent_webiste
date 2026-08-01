@@ -6,7 +6,7 @@ include('../config/dbcon.php');
 global $conn;
 
 if (!isLoggedIn()) {
-    header("Location: shop_worker_login.php");
+    header("Location: admin_login.php");
     exit();
 }
 
