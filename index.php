@@ -52,6 +52,7 @@ function get_offer_display(array $row): array {
 <?php include('php/header.php'); ?>
 
 <head>
+    <link rel="icon" type="image/icon type" href="images/logo.png">
     <link rel="stylesheet" href="css/index.css?v<?php echo time() ?>">
     <link rel="stylesheet" href="css/footer.css?v<?php echo time() ?>">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
@@ -67,7 +68,7 @@ function get_offer_display(array $row): array {
 
         <nav class="navbar navbar-expand-lg ">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/Barbecue Burger.jpg" alt=""  srcset=""></a>
+            <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""  srcset=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -88,15 +89,10 @@ function get_offer_display(array $row): array {
                   <a class="nav-link" href="php/menu.php"><i class="fa-solid fa-book"></i> Menu</a>
                 </li>
               </ul>
-
-              <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> +94 71234567</a>
-                </li>
-              </ul>
+              
 
               <form class="d-flex" action="php/search.php" method="GET" role="search">
-                <input class="form-control me-2" name = "search" type="search" placeholder="Search" aria-label="Search"/>
+                <input class="form-control me-2" name = "search" type="search" placeholder="Search" aria-label="Search" required/>
                 <button class="btn btn-outline-warning" name="searchbtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
@@ -207,7 +203,7 @@ function get_offer_display(array $row): array {
 
         <div class="fourthbody">
 
-          <span class="topic">Custormer Reviews <i class="fa-solid fa-book fa-float"></i></span>
+          <span class="topic">Custormer Reviews</span>
             
             <div class="slide-container">
                 <div class="card-wrapper swiper-wrapper">
@@ -300,7 +296,7 @@ function get_offer_display(array $row): array {
             </div>
                                         
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> Tronic. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> Resturent. All rights reserved.</p>
             </div>
                                         
         </div>
@@ -308,7 +304,6 @@ function get_offer_display(array $row): array {
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="javascript/swiper-bundle.min.js"></script>
     <script src="javascript/script.js"></script>
 </body>

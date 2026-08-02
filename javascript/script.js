@@ -27,3 +27,5 @@
             }
             initOffersSwiper();
         });
+        
+        

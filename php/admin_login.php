@@ -20,13 +20,15 @@ header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-header("Content-Security-Policy: "
+header(
+    "Content-Security-Policy: "
     . "default-src 'self'; "
-    . "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://ajax.googleapis.com https://unpkg.com https://kit.fontawesome.com https://maxcdn.bootstrapcdn.com https://kit.fontawesome.com/74773f3dc0.js;"
-    . "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; "
-    . "img-src 'self' data:; "
-    . "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://kit.fontawesome.com https://unpkg.com https://cdn.jsdelivr.net; "
-    . "connect-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; "
+    . "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://ajax.googleapis.com https://kit.fontawesome.com https://ka-f.fontawesome.com; "
+    . "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; "
+    . "font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com https://cdnjs.cloudflare.com data:; "
+    . "img-src 'self' data: blob: https:; "
+    . "connect-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com https://cdn.jsdelivr.net; "
+    . "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com; "
     . "object-src 'none'; "
     . "base-uri 'self'; "
     . "form-action 'self';"
@@ -264,7 +266,7 @@ function display_errors($errors) {
 
 <?php include('navbar.php'); ?>
 
-<div class="container" style="top:7rem; background: rgb(39, 38, 38); box-shadow: 0 5px 10px rgba(0,0,0,0.2);">
+<div class="container" style="top:1rem; background: rgb(39, 38, 38); box-shadow: 0 5px 10px rgba(0,0,0,0.2);">
     <input type="checkbox" id="flip">
     <div class="cover">
         <div class="front">
@@ -273,7 +275,9 @@ function display_errors($errors) {
             </div>
         </div>
     </div>
+
     <div class="forms">
+
         <div class="form-content">
 
             <!-- LOGIN FORM -->
@@ -284,12 +288,10 @@ function display_errors($errors) {
                 <form action="#" class="sign-in-form" method="post">
                     <div class="input-boxes">
                         <div class="input-box">
-                            <i class="fas fa-envelope"></i>
                             <input type="text" placeholder="Email" name="shop_workers_email"
                                    value="<?php echo htmlspecialchars($_POST['shop_workers_email'] ?? ''); ?>" required />
                         </div>
                         <div class="input-box">
-                            <i class="fas fa-lock"></i>
                             <input type="password" placeholder="Password" name="shop_workers_password" required id="signin-password" />
                             <span class="toggle-password" toggle="#signin-password"><i class="fas fa-eye"></i></span>
                         </div>
@@ -312,23 +314,19 @@ function display_errors($errors) {
 
                 <form action="#" class="sign-up-form" method="post" enctype="multipart/form-data">
                     <div class="input-box">
-                        <i class="fas fa-user"></i>
                         <input type="text" placeholder="Username (required)" name="shop_workers_name"
                                value="<?php echo htmlspecialchars($input_values['shop_workers_name']); ?>" required />
                     </div>
                     <div class="input-box">
-                        <i class="fas fa-envelope"></i>
                         <input type="email" placeholder="Email (required)" name="shop_workers_email"
                                value="<?php echo htmlspecialchars($input_values['shop_workers_email']); ?>" required />
                     </div>
                     <div class="input-box">
-                        <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password (required)" name="shop_workers_password" required id="signup-password" />
                         <span class="toggle-password" toggle="#signup-password"><i class="fas fa-eye"></i></span>
                     </div>
                     <small class="password-hint">Minimum 8 characters</small>
                     <div class="input-box">
-                        <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Confirm Password (required)" name="signup_cpassword" required id="signup-cpassword" />
                         <span class="toggle-password" toggle="#signup-cpassword"><i class="fas fa-eye"></i></span>
                     </div>
@@ -359,7 +357,9 @@ function display_errors($errors) {
     </div>
 </div>
 
-<?php include('footer.php'); ?>
+
+
+
 
 
 <script>
@@ -419,6 +419,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+
+<?php include('footer.php'); ?>
+
 
 </body>
 </html>

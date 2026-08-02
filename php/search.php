@@ -44,23 +44,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['searchbtn'])) {
     }
 }
 
+
 function render_price_row(string $label, $regular, $offer, bool $hasOffer): string
 {
-    if ($regular === null) {
+    // Do not display if price is empty, null, or zero
+    if ($regular === null || $regular === '' || (float)$regular <= 0) {
         return '';
     }
-    $html  = '<div class="price-row">';
-    $html .= '<span class="price-size">' . htmlspecialchars($label) . '</span>';
-    if ($hasOffer && $offer !== null && (float)$offer < (float)$regular) {
-        $html .= '<span class="price-old">Rs. ' . number_format((float)$regular, 2) . '</span>';
-        $html .= '<span class="price-new">Rs. ' . number_format((float)$offer, 2) . '</span>';
+
+    $html = '<div class="price-row">';
+
+    $html .= '<span class="price-size">'
+          . htmlspecialchars($label)
+          . '</span>';
+
+    // Display offer price only if offer exists and is lower than regular price
+    if (
+        $hasOffer &&
+        $offer !== null &&
+        $offer !== '' &&
+        (float)$offer > 0 &&
+        (float)$offer < (float)$regular
+    ) {
+
+        $html .= '<span class="price-old">
+                    Rs. ' . number_format((float)$regular, 2) . '
+                  </span>';
+
+        $html .= '<span class="price-new">
+                    Rs. ' . number_format((float)$offer, 2) . '
+                  </span>';
+
     } else {
-        $html .= '<span class="price-new">Rs. ' . number_format((float)$regular, 2) . '</span>';
+
+        $html .= '<span class="price-new">
+                    Rs. ' . number_format((float)$regular, 2) . '
+                  </span>';
     }
+
     $html .= '</div>';
+
     return $html;
 }
 ?>
+
+<?php include('header.php'); ?>
 
 <head>
 
@@ -68,12 +96,15 @@ function render_price_row(string $label, $regular, $offer, bool $hasOffer): stri
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/search.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="../css/search.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="../css/index.css?v=<?php echo time(); ?>">
 
 </head>
 
 <?php 
-include('header.php');
 
 include('navbar.php');
 
@@ -99,7 +130,7 @@ include('navbar.php');
           ?>
             <div class="product-card">
               <div class="product-media">
-                <img src="<?= $img ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy" width="400" height="300">
+                <img src="admin/productimages/<?= $img ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy" width="400" height="300">
                 <?php if ($hasOffer): ?>
                   <span class="offer-flag">OFFER</span>
                 <?php endif; ?>

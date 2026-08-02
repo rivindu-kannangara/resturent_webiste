@@ -21,11 +21,11 @@
             <div class="footer-col">
                 <h4 class="footer-heading">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/menu">Menu</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/terms">Terms &amp; Conditions</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="menu">Menu</a></li>
+                    <li><a href="contact">Contact Us</a></li>
+                    <li><a href="terms">Terms &amp; Conditions</a></li>
+                    <li><a href="privacy">Privacy Policy</a></li>
                 </ul>
             </div>
 

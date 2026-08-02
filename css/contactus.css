@@ -2,7 +2,13 @@
     height: 50dvh;
     background-repeat: no-repeat;
     background-size: cover;
-    background: url(../images/contactus.jpg);
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 60%,
+      rgba(32, 32, 32, 0.4) 75%,
+      rgba(28, 28, 28, 0.938) 90%,
+      #202020 100%
+     ) ,url(../images/contactuspic.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -11,14 +17,15 @@
     color: #dedede;
     position: relative;
     display: flex;
-    margin: 4dvh;
-    font-size: 20dvh;
+    margin: 0;
+    font-size: clamp(2.2rem, 9vw, 20rem);
     font-family: "Merienda", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     opacity: 0.9;
     justify-content: center;
+    top: 10dvh;
 
 }
 
@@ -37,3 +44,8 @@
     padding: 12px;   
 }
 
+.map{
+    width: 100%;
+    height: 70dvh;
+    border: 0;
+}
