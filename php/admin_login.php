@@ -359,6 +359,9 @@ function display_errors($errors) {
     </div>
 </div>
 
+<?php include('footer.php'); ?>
+
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.toggle-password').forEach(function(toggle) {

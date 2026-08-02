@@ -124,5 +124,7 @@ $categoryResult = $conn->query($categoryQuery);
 
     </div>
 
+    <?php include('footer.php'); ?>
+
 </body>
 </html>

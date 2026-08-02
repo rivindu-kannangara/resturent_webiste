@@ -10,7 +10,7 @@
         <div class="footer-columns">
 
             <div class="footer-col footer-brand">
-                <h3 class="footer-heading">Tronic</h3>
+                <h3 class="footer-heading">Resturent</h3>
                 <p class="footer-tagline">Good food, delivered right.</p>
                 <div class="footer-payment">
                     <span class="footer-label">We accept</span>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Tronic. All rights reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> Resturent. All rights reserved.</p>
         </div>
 
     </div>

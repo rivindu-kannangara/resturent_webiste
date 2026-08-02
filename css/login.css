@@ -7,16 +7,6 @@
   font-family: "Poppins" , sans-serif;
 }
 
-body{
-    background-color: #202020;
-}
-
-.logo{
-  position: absolute;
-  width: 19%;
-  left: 0%;
-  top: 0%;
-}
 .container{
   position: relative;
   max-width: 950px;
@@ -328,6 +318,12 @@ body{
 #g_id_onload {
     display: block;
 }
+
+
+.site-footer {
+    margin-top:  55px;
+}
+
 
 @media (max-width: 480px){
   .whtasapphelp{ width: 80%; min-width: 0; }

@@ -54,6 +54,8 @@ function get_offer_display(array $row): array {
 <head>
     <link rel="stylesheet" href="css/index.css?v<?php echo time() ?>">
     <link rel="stylesheet" href="css/footer.css?v<?php echo time() ?>">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <link rel="stylesheet" href="../css/footer.css?v=<?php echo time(); ?>">
     <title>Resturent</title>
 </head>
 
@@ -102,13 +104,10 @@ function get_offer_display(array $row): array {
         </nav>
 
 
-         <div class="upperbodyquate">
-            Crafted with Passion, <br> Served with Love...
-        </div>
-
-        <div class="button">
-            <button class="upper_order_button" onclick="window.location.href='php/menu.php';">View Menu <i class="fa-solid fa-arrow-right fa-jello"></i></button>
-        </div>
+          <div class="hero-content">
+            <p class="upperbodyquate">Crafted with Passion<br>Served with Love...</p>
+            <button class="upper_order_button">View Menu →</button>
+          </div>
     </div>
 
     <!-- subparts -->
@@ -208,31 +207,48 @@ function get_offer_display(array $row): array {
 
         <div class="fourthbody">
 
-          <span class="topic">Custormer Reviews <i class="fa-solid fa-book"></i></span>
-          
-            <div class="cardset">
-                                        
-                <div class="cards">
-                    <span class="name">John Doe</span>
-                    <span class="">
-                        "Absolutely amazing! The food was fresh, full of flavor, and delivered right on time. I'll definitely be ordering again!"
-                    </span>
+          <span class="topic">Custormer Reviews <i class="fa-solid fa-book fa-float"></i></span>
+            
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                  <div class="card swiper-slide">
+                    
+                    <div class="profile-details">
+                      <div class="name-job">
+                        <h3 class="name">David Cardlos</h3>
+                        <h4 class="job">
+                            "Absolutely amazing! The food was fresh, full of flavor, and delivered right on time. I'll definitely be ordering again!"
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card swiper-slide">
+                    
+                    <div class="profile-details">
+                      <div class="name-job">
+                        <h3 class="name">Siliana Ramis</h3>
+                        <h4 class="job">
+                            "One of the best dining experiences I've had. The quality of the food, friendly service, and quick delivery exceeded my expectations."
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card swiper-slide">
+                    
+                    <div class="profile-details">
+                      <div class="name-job">
+                        <h3 class="name">Richard Bond</h3>
+                        <h4 class="job">
+                            "Authentic flavors, generous portions, and excellent customer service. Every meal I've ordered has been delicious. Highly recommended!"t</h4>
+                      </div>
+                    </div>
+                  </div>
+   
                 </div>
-                                        
-                <div class="cards">
-                  <span class="name">John Doe</span>
-                  <span class="">
-                      "Absolutely amazing! The food was fresh, full of flavor, and delivered right on time. I'll definitely be ordering again!"
-                  </span>
-                </div>
-                                        
-                <div class="cards">
-                  <span class="name">John Doe</span>
-                  <span class="">
-                      "Absolutely amazing! The food was fresh, full of flavor, and delivered right on time. I'll definitely be ordering again!"
-                  </span>
-                </div>
-                                        
+              </div>
+              <div class="swiper-button-next swiper-navBtn"></div>
+              <div class="swiper-button-prev swiper-navBtn"></div>
+              <div class="swiper-pagination"></div>
             </div>
 
         </div>
@@ -241,7 +257,55 @@ function get_offer_display(array $row): array {
 
     </div>
 
-    <?php include('php/footer.php'); ?>
+    <footer class="site-footer">
+                                        
+        <div class="footer-inner">
+                                        
+            <div class="footer-columns">
+                                        
+                <div class="footer-col footer-brand">
+                    <h3 class="footer-heading">Resturent</h3>
+                    <p class="footer-tagline">Good food, delivered right.</p>
+                    <div class="footer-payment">
+                        <span class="footer-label">We accept</span>
+                        <img class="footerpayment" src="images/Free Payment Method & Credit Card Icon Set.jpg" alt="Accepted payment methods" loading="lazy">
+                    </div>
+                </div>
+                                        
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/terms">Terms &amp; Conditions</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                                        
+                <div class="footer-col footer-map">
+                    <h4 class="footer-heading">Find Us</h4>
+                    <div class="map-embed">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.1990982453485!2d79.8821046113554!3d6.8667292931032184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bccf2c136cb%3A0x41301876361abd86!2sTRONIC.LK!5e0!3m2!1sen!2slk!4v1785501346227!5m2!1sen!2slk"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            title="Store location map">
+                        </iframe>
+                    </div>
+                </div>
+                                        
+            </div>
+                                        
+            <div class="footer-bottom">
+                <p>&copy; <?php echo date('Y'); ?> Tronic. All rights reserved.</p>
+            </div>
+                                        
+        </div>
+                                        
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

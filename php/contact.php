@@ -17,7 +17,6 @@ $categoryResult = $conn->query($categoryQuery);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="../css/index.css?v=<?= time(); ?>">
     <link rel="stylesheet" href="../css/contactus.css?v=<?= time(); ?>">
 </head>
 <body>

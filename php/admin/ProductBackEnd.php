@@ -36,7 +36,7 @@ $price_large  = isset($_POST['price_large'])  ? (float) $_POST['price_large']  :
 $offer        = isset($_POST['offer']) && $_POST['offer'] !== '' ? (int) $_POST['offer'] : 0;
 $description  = trim($_POST['description'] ?? '');
 
-if ($category_id <= 0 || $name === '' || $price_small <= 0 || $price_medium <= 0 || $price_large <= 0) {
+if ($category_id <= 0 && $name === '' && $price_small <= 0 && $price_medium <= 0 && $price_large <= 0) {
     $_SESSION['flash_error'] = 'Please fill in all required fields correctly.';
     header('Location: addproduct3.php');
     exit();

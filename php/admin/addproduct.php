@@ -116,7 +116,7 @@ $prodCssVer = filemtime(__DIR__ . '/../../css/productadd.css');
                         <div class="price-input">
                             <span class="currency">$</span>
                             <input type="number" step="0.01" min="0" placeholder="10.00"
-                                   name="price_small" id="price_small" required>
+                                   name="price_small" id="price_small">
                         </div>
                     </div>
                     <div class="price-field">
@@ -124,7 +124,7 @@ $prodCssVer = filemtime(__DIR__ . '/../../css/productadd.css');
                         <div class="price-input">
                             <span class="currency">$</span>
                             <input type="number" step="0.01" min="0" placeholder="14.00"
-                                   name="price_medium" id="price_medium" required>
+                                   name="price_medium" id="price_medium">
                         </div>
                     </div>
                     <div class="price-field">
@@ -132,7 +132,7 @@ $prodCssVer = filemtime(__DIR__ . '/../../css/productadd.css');
                         <div class="price-input">
                             <span class="currency">$</span>
                             <input type="number" step="0.01" min="0" placeholder="18.00"
-                                   name="price_large" id="price_large" required>
+                                   name="price_large" id="price_large">
                         </div>
                     </div>
                 </div>
